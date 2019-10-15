@@ -10,8 +10,8 @@ import json
 class ModLoadCryptoJSON:
 
     def __init__(self):
-        self.url = 'https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest'
-        # self.url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest'
+        # self.url = 'https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest'
+        self.url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest'
         self.parameters = {
             'symbol': None,
             'convert': 'CAD'
