@@ -1,3 +1,4 @@
+from Src.Controller.ModCopyAndSaveKMyMoneyXML import ModCopyAndSaveKMyMoneyXML
 from Src.CrossCuttingConcerns.App import App
 from Src.Controller.ModLoadCryptoJSON import ModLoadCryptoJSON
 from Src.Controller.ModLoadKMyMoneyXML import ModLoadKMyMoneyXML
@@ -20,6 +21,8 @@ class AppPythonCryptoFinanceUpdater(App):
         # Model for ModuleLoadCryptoJSON
         ModelFacade().add_currency("BTC")
         ModelFacade().add_currency("BCH")
+        ModelFacade().add_currency("BTG")
+        ModelFacade().add_currency("BCD")
         ModelFacade().add_currency("ETH")
         ModelFacade().add_currency("LTC")
         ModelFacade().add_currency("MIOTA")
@@ -27,6 +30,7 @@ class AppPythonCryptoFinanceUpdater(App):
 
         # Model for ModLoadKMyMoneyXML
         ModelFacade().add_KMyMoneyFile("/home/apetit/Documents/Alain Petit/Others/finances.xml")
+        # ModelFacade().add_KMyMoneyFile("/home/apetit/Documents/Alain Petit/Others/financesTest.xml")
 
 
 
@@ -36,3 +40,4 @@ class AppPythonCryptoFinanceUpdater(App):
         """
         ModLoadCryptoJSON().execute()
         ModLoadKMyMoneyXML().execute()
+        ModCopyAndSaveKMyMoneyXML().execute()

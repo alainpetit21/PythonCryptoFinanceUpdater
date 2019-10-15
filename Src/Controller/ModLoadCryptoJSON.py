@@ -39,4 +39,4 @@ class ModLoadCryptoJSON:
 
         for currency in ModelFacade().get_all_currencies_list():
             value = dict_full_result['data'][currency]['quote']['CAD']['price']
-            ModelFacade().add_formatted_quote(currency, value)
+            ModelFacade().set_formatted_quote(currency, value)
