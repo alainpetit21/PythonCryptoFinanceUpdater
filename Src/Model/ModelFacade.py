@@ -1,5 +1,4 @@
 from Src.CrossCuttingConcerns.SingletonDecorator import SingletonDecorator
-import json
 
 
 class Results:
@@ -15,7 +14,6 @@ class ModelFacade:
     def __init__(self):
         # For Module 1 - ModLoadCryptoJSON
         self.list_all_currencies= []
-        self.dict_results_quotes = None
         self.dict_results_quotes_formated = {}
 
         # For Module 2 - ModLoadKMyMoneyXML
@@ -40,20 +38,11 @@ class ModelFacade:
     def get_all_currencies_list(self):
         return self.list_all_currencies
 
-    def import_JSON_quotes(self, str_json):
-        self.dict_results_quotes= json.loads(str_json)
-
     def set_formatted_quote(self, key, price):
         self.dict_results_quotes_formated[key]= price
 
     def get_formatted_quote(self, key):
         return self.dict_results_quotes_formated[key]
-
-    def get_results_quotes_element(self, key):
-        return self.dict_results_quotes[key]
-
-    def get_all_results_quotes(self):
-        return self.dict_results_quotes
 
     def add_KMyMoneyFile(self, str_filename):
         self.str_filename_kMyMoney = str_filename

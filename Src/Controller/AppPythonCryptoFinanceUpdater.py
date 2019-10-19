@@ -9,7 +9,7 @@ class AppPythonCryptoFinanceUpdater(App):
     def __init__(self):
         """ __init__ Description : (public visibility) :
             Constructor methods that will create this object. I does not do a lot but, overload the BaseClass
-            construction call and initialization the class attributes for this instance.
+            construction call and initialization the attributes for this instance.
         """
         super().__init__("AppPythonCryptoFinanceUpdater")
 
@@ -18,6 +18,7 @@ class AppPythonCryptoFinanceUpdater(App):
             Method that is called directly after the creation of the object. Its purpose is to do all loading that is
             beside initial initialization.
         """
+
         # Model for ModuleLoadCryptoJSON
         ModelFacade().add_currency("BTC")
         ModelFacade().add_currency("BCH")

@@ -71,10 +71,9 @@ class CherryPyExposure(Thread):
             }
         }
 
-        cherrypy.quickstart(self, '/', dicConfigParams) # this call is blocking (e.g. when we go to the next line it
-                                                        # mean that the server has ended).
-        self.setRunning(False)                      # This is why we need to stop the thread after the server has ended.
-
+        # This call is blocking (e.g. when we go to the next line it mean that the server has ended).
+        cherrypy.quickstart(self, '/', dicConfigParams)
+        self.setRunning(False)
 
 
 # ======================================================================================================================

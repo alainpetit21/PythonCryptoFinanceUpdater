@@ -29,9 +29,3 @@ class ModelFacadeTest(unittest.TestCase):
         self.obj_model_facade.add_currency("VWX")
         self.obj_model_facade.add_currency("YZ")
         self.assertEqual(self.obj_model_facade.get_all_currencies_string(), "ABC,DEF,GHI,JKL,MNO,PQR,STU,VWX,YZ")
-
-    def test_json_import(self):
-        self.obj_model_facade.import_JSON_quotes('{ "name":"John", "age":30, "city":"New York"}')
-        self.assertEqual(self.obj_model_facade.get_results_quotes_element('name'), "John")
-        self.assertEqual(self.obj_model_facade.get_results_quotes_element('age'), 30)
-        self.assertEqual(self.obj_model_facade.get_results_quotes_element('city'), "New York")
