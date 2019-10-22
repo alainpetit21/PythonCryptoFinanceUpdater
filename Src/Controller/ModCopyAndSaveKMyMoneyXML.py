@@ -26,8 +26,6 @@ class ModCopyAndSaveKMyMoneyXML:
         # Loop through from the currencies list saved in the model, and for each add an PRICE entry for the latest quote
         for currency in ModelFacade().get_all_currencies_list():
             for res_price_pair in self.objDOM.xpath("//*[@to='CAD' and @from='"+ currency + "']"):
-                print(res_price_pair)
-
                 # Creation of the PRICE node
                 child_new_price = etree.SubElement(res_price_pair, "PRICE")
                 child_new_price.set("source", "CryptoFinanceUpdater")
@@ -43,6 +41,9 @@ class ModCopyAndSaveKMyMoneyXML:
                 month = str_time[5:7]
                 day = str_time[8:10]
                 child_new_price.set("date", str(year) + "-" + str(month) + "-" + str(day))
+
+                print("New price par " + currency + " at " + str(latest_price/1000.0))
+
 
         # Convert the DOM to a string, and save it back to the file
         str_output = etree.tostring(self.objDOM, pretty_print=True)
