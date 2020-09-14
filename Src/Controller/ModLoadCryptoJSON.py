@@ -25,7 +25,7 @@ class ModLoadCryptoJSON:
         }
         self.headers = {
             'Accepts': 'application/json',
-            'X-CMC_PRO_API_KEY': config.mAPIKey
+            'X-CMC_PRO_API_KEY': config.mCoinMarketAPIKey
         }
         self.session = None
 
@@ -55,6 +55,6 @@ class ModLoadCryptoJSON:
 
         # The resulting Dic countains way too much information for our need. Strip everything and keep just the
         # Symbol : price key pair.
-        for currency in ModelFacade().get_all_currencies_list():
+        for currency in ModelFacade().get_all_cryptocurrencies_list():
             value = dict_full_result['data'][currency]['quote']['CAD']['price']
             ModelFacade().set_formatted_quote(currency, value)

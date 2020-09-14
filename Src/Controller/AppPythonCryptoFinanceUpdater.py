@@ -1,7 +1,8 @@
-from Src.Controller.ModCopyAndSaveKMyMoneyXML import ModCopyAndSaveKMyMoneyXML
+from Src.Controller.ModApplyCryptoCurrencyPrice import ModApplyCryptoCurrencyPrice
 from Src.CrossCuttingConcerns.App import App
 from Src.Controller.ModLoadCryptoJSON import ModLoadCryptoJSON
-from Src.Controller.ModLoadKMyMoneyXML import ModLoadKMyMoneyXML
+from Src.Controller.ModPrintAllCryptoHistoryPrice import ModPrintAllCryptoHistoryPrice
+from Src.Controller.ModBuildSecuritiesListFromXML import ModBuildSecuritiesListFromXML
 from Src.Model.ModelFacade import ModelFacade
 
 
@@ -28,11 +29,22 @@ class AppPythonCryptoFinanceUpdater(App):
         ModelFacade().add_currency("LTC")
         ModelFacade().add_currency("MIOTA")
         ModelFacade().add_currency("CEL")
+        ModelFacade().add_currency("HNT")
+
+        ModelFacade().add_security("0P0000715P.TRT")
+        ModelFacade().add_security("0P0000715V.TRT")
+        ModelFacade().add_security("0P000072TQ.TRT")
+        ModelFacade().add_security("HQH")
+        ModelFacade().add_security("HQL")
+        ModelFacade().add_security("TCT-UN.TRT")
+        ModelFacade().add_security("VAB.TO")
+        ModelFacade().add_security("VUN.TRT")
+        ModelFacade().add_security("XEC.TRT")
+        ModelFacade().add_security("XEF.TRT")
 
         # Model for ModLoadKMyMoneyXML
-        ModelFacade().add_KMyMoneyFile("/home/apetit/Documents/Alain Petit/Others/finances.xml")
-        # ModelFacade().add_KMyMoneyFile("/home/apetit/Documents/Alain Petit/Others/financesTest.xml")
-
+        ModelFacade().add_KMyMoneyFile("/home/alainpetit/Documents/Alain Petit/Others/finances.xml")
+        # ModelFacade().add_KMyMoneyFile("/home/apetit/Documents/Alain Petit/Others/finances-test.xml")
 
 
     def main(self, param1=None):
@@ -40,5 +52,6 @@ class AppPythonCryptoFinanceUpdater(App):
             The main function of this Applicaiton objet.
         """
         ModLoadCryptoJSON().execute()
-        ModLoadKMyMoneyXML().execute()
-        ModCopyAndSaveKMyMoneyXML().execute()
+        ModPrintAllCryptoHistoryPrice().execute()
+        ModApplyCryptoCurrencyPrice().execute()
+        ModLoadCryptoJSON().execute()

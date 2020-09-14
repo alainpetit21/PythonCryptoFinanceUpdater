@@ -4,7 +4,7 @@ from Src.Model.ModelFacade import ModelFacade
 from lxml import etree
 
 
-class ModLoadKMyMoneyXML:
+class ModPrintAllCryptoHistoryPrice:
 
     def __init__(self):
         """ __init__ Description : (public visibility) :
@@ -22,8 +22,8 @@ class ModLoadKMyMoneyXML:
             self.objDOM = etree.parse(in_file.buffer)
 
         # For all the currencies in the model, find the category for this pricepair using XPATH
-        for currency in ModelFacade().get_all_currencies_list():
-            for res_price_pair in self.objDOM.xpath("//*[@to='CAD' and @from='"+ currency +"']"):
+        for cryptocurrency in ModelFacade().get_all_cryptocurrencies_list():
+            for res_price_pair in self.objDOM.xpath("//*[@to='CAD' and @from='"+ cryptocurrency +"']"):
 
                 # Find the latest price quote (in format 1234 / 1000 to give 1.234, kmymoney weird way of manipulating
                 # floating points)
@@ -36,5 +36,5 @@ class ModLoadKMyMoneyXML:
                     last_value = int(left_value) / int(right_value)
 
                     # Tell the model to keep this data
-                    ModelFacade().set_latest_KMyMoneyFile_quote(currency, last_value)
-                    print(currency + "=" + str(last_value))
+                    ModelFacade().set_latest_KMyMoneyFile_quote(cryptocurrency, last_value)
+                    print(cryptocurrency + "=" + str(last_value))

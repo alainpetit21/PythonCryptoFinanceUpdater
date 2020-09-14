@@ -16,15 +16,22 @@ class ModelFacade:
         self.list_all_currencies= []
         self.dict_results_quotes_formated = {}
 
-        # For Module 2 - ModLoadKMyMoneyXML
+        # For Module 2 - MOdPringAllCryptoHistoryPrice
         self.str_filename_kMyMoney = None
         self.dict_kMyMoney_quotes_latest = {}
 
+        # For Module - ModLoadSecurities
+        self.list_all_securities= []
+
     def clear_all(self):
         self.list_all_currencies.clear()
+        self.list_all_securities.clear()
 
     def add_currency(self, str_currency):
         self.list_all_currencies.append(str_currency)
+
+    def add_security(self, str_security):
+        self.list_all_securities.append(str_security)
 
     def get_all_currencies_string(self):
         str_all_currencies = ""
@@ -35,8 +42,20 @@ class ModelFacade:
         str_all_currencies= str_all_currencies[:-1]
         return str_all_currencies
 
-    def get_all_currencies_list(self):
+    def get_all_securities_string(self):
+        str_all_securities = ""
+
+        for item in self.list_all_securities:
+            str_all_securities= str_all_securities + item + ','
+
+        str_all_securities= str_all_securities[:-1]
+        return str_all_securities
+
+    def get_all_cryptocurrencies_list(self):
         return self.list_all_currencies
+
+    def get_all_securities_list(self):
+        return self.list_all_securities
 
     def set_formatted_quote(self, key, price):
         self.dict_results_quotes_formated[key]= price

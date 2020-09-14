@@ -1,8 +1,3 @@
-# ======================================================================================================================
-# main.py : entry point script for this example
-
-# ======================================================================================================================
-# importing internal modules
 from Src.Controller.AppPythonCryptoFinanceUpdater import AppPythonCryptoFinanceUpdater
 
 

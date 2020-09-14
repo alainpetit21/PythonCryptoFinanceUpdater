@@ -5,7 +5,7 @@ from lxml import etree
 from datetime import datetime
 
 
-class ModCopyAndSaveKMyMoneyXML:
+class ModApplyCryptoCurrencyPrice:
 
     def __init__(self):
         """ __init__ Description : (public visibility) :
@@ -24,15 +24,15 @@ class ModCopyAndSaveKMyMoneyXML:
             self.objDOM= etree.parse(in_file.buffer)
 
         # Loop through from the currencies list saved in the model, and for each add an PRICE entry for the latest quote
-        for currency in ModelFacade().get_all_currencies_list():
-            for res_price_pair in self.objDOM.xpath("//*[@to='CAD' and @from='"+ currency + "']"):
+        for cryptocurrency in ModelFacade().get_all_cryptocurrencies_list():
+            for res_price_pair in self.objDOM.xpath("//*[@to='CAD' and @from='"+ cryptocurrency + "']"):
                 # Creation of the PRICE node
                 child_new_price = etree.SubElement(res_price_pair, "PRICE")
                 child_new_price.set("source", "CryptoFinanceUpdater")
 
                 # KMyMoney save quote as an equation (e.g. 100/20 for 5.0)
                 # In our case, we shall always use the (int / 1000) format and save it to 3 decimal digit of precisions
-                latest_price = int(ModelFacade().get_formatted_quote(currency) * 1000)
+                latest_price = int(ModelFacade().get_formatted_quote(cryptocurrency) * 1000)
                 child_new_price.set("price", str(latest_price) + "/1000")
 
                 # Date of that quote
@@ -42,7 +42,7 @@ class ModCopyAndSaveKMyMoneyXML:
                 day = str_time[8:10]
                 child_new_price.set("date", str(year) + "-" + str(month) + "-" + str(day))
 
-                print("New price par " + currency + " at " + str(latest_price/1000.0))
+                print("New price par " + cryptocurrency + " at " + str(latest_price/1000.0))
 
 
         # Convert the DOM to a string, and save it back to the file
