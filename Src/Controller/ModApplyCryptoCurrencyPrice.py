@@ -30,10 +30,17 @@ class ModApplyCryptoCurrencyPrice:
                 child_new_price = etree.SubElement(res_price_pair, "PRICE")
                 child_new_price.set("source", "CryptoFinanceUpdater")
 
+                #Some Crypto CUrrencies have very small value, save them in fraction of 1000000 instead
+                multiplicator = 1000.0
+                price_float = ModelFacade().get_formatted_quote(cryptocurrency)
+                if (price_float < 0.001):
+                    multiplicator = 1000000.0
+
                 # KMyMoney save quote as an equation (e.g. 100/20 for 5.0)
                 # In our case, we shall always use the (int / 1000) format and save it to 3 decimal digit of precisions
-                latest_price = int(ModelFacade().get_formatted_quote(cryptocurrency) * 1000)
-                child_new_price.set("price", str(latest_price) + "/1000")
+
+                latest_price = int(ModelFacade().get_formatted_quote(cryptocurrency) * multiplicator)
+                child_new_price.set("price", str(latest_price) + "/" + str(int(multiplicator)))
 
                 # Date of that quote
                 str_time= datetime.now().strftime('%Y-%m-%d %H:%M:%S')
@@ -42,7 +49,7 @@ class ModApplyCryptoCurrencyPrice:
                 day = str_time[8:10]
                 child_new_price.set("date", str(year) + "-" + str(month) + "-" + str(day))
 
-                print("New price par " + cryptocurrency + " at " + str(latest_price/1000.0))
+                print("New price par " + cryptocurrency + " at " + str(latest_price/multiplicator))
 
 
         # Convert the DOM to a string, and save it back to the file

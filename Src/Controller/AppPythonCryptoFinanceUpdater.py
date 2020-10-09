@@ -30,6 +30,7 @@ class AppPythonCryptoFinanceUpdater(App):
         ModelFacade().add_currency("MIOTA")
         ModelFacade().add_currency("CEL")
         ModelFacade().add_currency("HNT")
+        ModelFacade().add_currency("XYO")
 
         ModelFacade().add_security("0P0000715P.TRT")
         ModelFacade().add_security("0P0000715V.TRT")
