@@ -7,6 +7,7 @@ from requests import Session
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
 
+
 class ModLoadCryptoJSON:
 
     def __init__(self):

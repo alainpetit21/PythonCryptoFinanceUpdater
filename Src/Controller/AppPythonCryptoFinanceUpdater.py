@@ -2,7 +2,6 @@ from Src.Controller.ModApplyCryptoCurrencyPrice import ModApplyCryptoCurrencyPri
 from Src.CrossCuttingConcerns.App import App
 from Src.Controller.ModLoadCryptoJSON import ModLoadCryptoJSON
 from Src.Controller.ModPrintAllCryptoHistoryPrice import ModPrintAllCryptoHistoryPrice
-from Src.Controller.ModBuildSecuritiesListFromXML import ModBuildSecuritiesListFromXML
 from Src.Model.ModelFacade import ModelFacade
 
 
@@ -55,4 +54,3 @@ class AppPythonCryptoFinanceUpdater(App):
         ModLoadCryptoJSON().execute()
         ModPrintAllCryptoHistoryPrice().execute()
         ModApplyCryptoCurrencyPrice().execute()
-        ModLoadCryptoJSON().execute()

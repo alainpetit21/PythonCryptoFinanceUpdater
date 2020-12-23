@@ -2,18 +2,13 @@
 
 from Src.Controller.config import config
 from Src.Model.ModelFacade import ModelFacade
-from Src.Model.ModelFacade import ModelFacade
 from lxml import etree
-from datetime import datetime
 import logging
 from alpha_vantage.timeseries import TimeSeries
 import time
 
 
 class ModLoadCryptoJSON:
-
-    def __init__(self):
-        pass
 
     def doOneSecurity(self, security):
         logging.basicConfig(filename='example.log', level=logging.DEBUG)

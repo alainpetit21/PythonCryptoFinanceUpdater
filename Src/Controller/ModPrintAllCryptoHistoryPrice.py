@@ -28,6 +28,7 @@ class ModPrintAllCryptoHistoryPrice:
                 # Find the latest price quote (in format 1234 / 1000 to give 1.234, kmymoney weird way of manipulating
                 # floating points)
                 for price in list(res_price_pair):
+                    str_date = price.get("date")
                     str_quote = price.get("price")
                     data_quote = str_quote.split('/')
                     left_value = data_quote[0]
@@ -37,4 +38,4 @@ class ModPrintAllCryptoHistoryPrice:
 
                     # Tell the model to keep this data
                     ModelFacade().set_latest_KMyMoneyFile_quote(cryptocurrency, last_value)
-                    print(cryptocurrency + "=" + str(last_value))
+                    print(cryptocurrency + ":" + str_date + "=" + str(last_value))
