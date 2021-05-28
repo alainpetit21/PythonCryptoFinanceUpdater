@@ -23,7 +23,7 @@ def helloWorld(*args):
     cell = sheet.getCellByPosition(1, nCurPosY)
     cell.setString("hello World")
 
-def UpdateCryptoCurrency(strCurrency):
+def UpdateCryptoCurrency(strCurrency, account):
     from lxml import etree
     from datetime import datetime
 
@@ -66,18 +66,33 @@ def UpdateCryptoCurrency(strCurrency):
                 if(strDateKMM == strDate):
                     cellToWrite.setValue(lastValue)
 
-                    nCurPosY+= 1
+
+                    for transaction in objDOM.xpath("//*[@commodity='"+strCurrency+"' and @postdate='"+strDate+"']"):
+                        for splits in list(transaction):
+                            for split in list(splits):
+                                strAccountKMM = split.get("account")
+                                strShareKMM = split.get("shares")
+
+                                if strAccountKMM == account:
+                                    dataShareKMM = strShareKMM.split('/')
+                                    leftValue = dataShareKMM[0]
+                                    rightValue = dataShareKMM[1]
+                                    lastValue = int(leftValue) / int(rightValue)
+                                    sheet.getCellByPosition(3, nCurPosY).setValue(lastValue)
+
+                    nCurPosY += 1
                     strDate = sheet.getCellByPosition(0, nCurPosY).getString()
                     cellToWrite = sheet.getCellByPosition(1, nCurPosY)
 
+
 def UpdateCEL(*args):
-    UpdateCryptoCurrency("CEL")
+    UpdateCryptoCurrency("CEL", "A000438")
 
 
 def UpdateHNT(*args):
-    UpdateCryptoCurrency("HNT")
+    UpdateCryptoCurrency("HNT", "A000455")
 
 
 def UpdateXYO(*args):
-    UpdateCryptoCurrency("XYO")
+    UpdateCryptoCurrency("XYO", "A000461")
 
