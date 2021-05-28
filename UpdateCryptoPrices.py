@@ -5,24 +5,6 @@
 #	$HOME/.config/libreoffice/4/user/Scripts/python.
 
 
-def helloWorld(*args):
-    desktop = XSCRIPTCONTEXT.getDesktop()
-    model = desktop.getCurrentComponent()
-    sheet = model.CurrentController.ActiveSheet
-
-    nCurPosY = 0
-    while True:
-        cell = sheet.getCellByPosition(1, nCurPosY)
-        strValue = cell.getString()
-
-        if strValue == "":
-            break
-
-        nCurPosY += 1
-
-    cell = sheet.getCellByPosition(1, nCurPosY)
-    cell.setString("hello World")
-
 def UpdateCryptoCurrency(strCurrency, account):
     from lxml import etree
     from datetime import datetime
