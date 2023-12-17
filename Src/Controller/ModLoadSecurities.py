@@ -8,7 +8,7 @@ from alpha_vantage.timeseries import TimeSeries
 import time
 
 
-class ModLoadCryptoJSON:
+class ModLoadSecurities:
 
     def doOneSecurity(self, security):
         logging.basicConfig(filename='example.log', level=logging.DEBUG)

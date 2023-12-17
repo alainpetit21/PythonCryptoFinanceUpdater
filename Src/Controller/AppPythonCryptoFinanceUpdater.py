@@ -26,26 +26,30 @@ class AppPythonCryptoFinanceUpdater(App):
         ModelFacade().add_currency("BCD")
         ModelFacade().add_currency("ETH")
         ModelFacade().add_currency("LTC")
-        ModelFacade().add_currency("MIOTA")
+        # ModelFacade().add_currency("MIOTA")
+        ModelFacade().add_currency("IOTA")
         ModelFacade().add_currency("CEL")
         ModelFacade().add_currency("HNT")
         ModelFacade().add_currency("XYO")
 
-        ModelFacade().add_security("0P0000715P.TRT")
-        ModelFacade().add_security("0P0000715V.TRT")
-        ModelFacade().add_security("0P000072TQ.TRT")
-        ModelFacade().add_security("HQH")
-        ModelFacade().add_security("HQL")
-        ModelFacade().add_security("TCT-UN.TRT")
+        # ModelFacade().add_security("0P0000715P.TRT")
+        # ModelFacade().add_security("0P0000715V.TRT")
+        # ModelFacade().add_security("0P000072TQ.TRT")
+        # ModelFacade().add_security("HQH")
+        # ModelFacade().add_security("HQL")
+        # ModelFacade().add_security("TCT-UN.TRT")
+
+        ModelFacade().add_security("QBTC.TO")
+        ModelFacade().add_security("QETH.UN.TO")
         ModelFacade().add_security("VAB.TO")
-        ModelFacade().add_security("VUN.TRT")
+        ModelFacade().add_security("VUN.TO")
         ModelFacade().add_security("XEC.TRT")
         ModelFacade().add_security("XEF.TRT")
+        ModelFacade().add_security("MCM103")
 
         # Model for ModLoadKMyMoneyXML
-        ModelFacade().add_KMyMoneyFile("/home/alainpetit/Documents/Alain Petit/Others/finances.xml")
-        # ModelFacade().add_KMyMoneyFile("/home/apetit/Documents/Alain Petit/Others/finances-test.xml")
-
+        # ModelFacade().add_KMyMoneyFile("/home/alain/Documents/Alain Petit/Others/finances.bak.xml")
+        ModelFacade().add_KMyMoneyFile("/home/alain/Documents/Alain Petit/Others/finances.bak.xml")
 
     def main(self, param1=None):
         """ main Description : (public visibility) :

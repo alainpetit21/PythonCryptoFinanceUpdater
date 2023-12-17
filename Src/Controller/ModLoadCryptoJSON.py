@@ -14,7 +14,7 @@ class ModLoadCryptoJSON:
         """ __init__ Description : (public visibility) :
             Constructor methods that will create this object. Initialization the attributes for this instance.
         """
-        # Depending if I am testing or not I would use the sandbox link
+        # Depending on if I am testing or not I would use the sandbox link
         # self.url = 'https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest'
         self.url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest'
 
@@ -31,15 +31,15 @@ class ModLoadCryptoJSON:
         self.session = None
 
         # Overloading the 'symbol' with all currencies saved in the Model by the App
-        self.parameters['symbol']= ModelFacade().get_all_currencies_string()
+        self.parameters['symbol'] = ModelFacade().get_all_currencies_string()
 
     def execute(self):
         """ execute Description : (public visibility) :
             The one function to call for this module functionality. Execute the loading of JSON using Coinmarketcap
             public API
         """
-        #method local attribute initialization
-        dict_full_result= None
+        # method local attribute initialization
+        dict_full_result = None
 
         # Prepare the requests session
         self.session = Session()
@@ -48,7 +48,7 @@ class ModLoadCryptoJSON:
         try:
             # Launch it and pass the resulting converted JSON to python
             response = self.session.get(self.url, params=self.parameters)
-            dict_full_result= json.loads(response.text)
+            dict_full_result = json.loads(response.text)
 
         except (ConnectionError, Timeout, TooManyRedirects) as e:
             # TODO : better error catching

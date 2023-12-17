@@ -10,7 +10,7 @@ class ModPrintAllCryptoHistoryPrice:
         """ __init__ Description : (public visibility) :
             Constructor methods that will create this object. Initialization the attributes for this instance.
         """
-        self.objDOM= None
+        self.objDOM = None
 
     def execute(self):
         """ execute Description : (public visibility) :

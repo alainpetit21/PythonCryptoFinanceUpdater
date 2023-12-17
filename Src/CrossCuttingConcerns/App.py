@@ -32,18 +32,24 @@ class App:
             Constructor methode that manage the Singleton DP and generic constructor management for this object.
         """
 
-        self.isRunning = False          # Generic attributes, used internally
-        self.strAppName = p_str_name    # Generic attributes, used internally
-        self.objDomain = None           # Domain Object of the App in DDD architecture or Model in MVC architecture
-        self.lstSubThread = []          # Support for multi-threaded, list of launched Thread
+        self.isRunning = False  # Generic attributes, used internally
+        self.strAppName = p_str_name  # Generic attributes, used internally
+        self.objDomain = None  # Domain Object of the App in DDD architecture or Model in MVC architecture
+        self.lstSubThread = []  # Support for multi-threaded, list of launched Thread
 
         # Set basic logging output format
-        if debug_level == 0:    logging.basicConfig(level=logging.NOTSET, format='[%(levelname)s] (%(threadName)-10s) %(message)s')
-        if debug_level == 1:    logging.basicConfig(level=logging.DEBUG, format='[%(levelname)s] (%(threadName)-10s) %(message)s')
-        if debug_level == 2:    logging.basicConfig(level=logging.INFO, format='[%(levelname)s] (%(threadName)-10s) %(message)s')
-        if debug_level == 3:    logging.basicConfig(level=logging.WARNING, format='[%(levelname)s] (%(threadName)-10s) %(message)s')
-        if debug_level == 4:    logging.basicConfig(level=logging.ERROR, format='[%(levelname)s] (%(threadName)-10s) %(message)s')
-        if debug_level == 5:    logging.basicConfig(level=logging.CRITICAL, format='[%(levelname)s] (%(threadName)-10s) %(message)s')
+        if debug_level == 0:
+            logging.basicConfig(level=logging.NOTSET, format='[%(levelname)s] (%(threadName)-10s) %(message)s')
+        elif debug_level == 1:
+            logging.basicConfig(level=logging.DEBUG,format='[%(levelname)s] (%(threadName)-10s) %(message)s')
+        elif debug_level == 2:
+            logging.basicConfig(level=logging.INFO,format='[%(levelname)s] (%(threadName)-10s) %(message)s')
+        elif debug_level == 3:
+            logging.basicConfig(level=logging.WARNING,format='[%(levelname)s] (%(threadName)-10s) %(message)s')
+        elif debug_level == 4:
+            logging.basicConfig(level=logging.ERROR,format='[%(levelname)s] (%(threadName)-10s) %(message)s')
+        elif debug_level == 5:
+            logging.basicConfig(level=logging.CRITICAL,format='[%(levelname)s] (%(threadName)-10s) %(message)s')
 
     # ==================================================================================================================
     def setDomain(self, p_obj_model):
@@ -84,7 +90,7 @@ class App:
         p_obj_thread.start()
 
     # ==================================================================================================================
-    def main(self, param1= None):
+    def main(self, param1=None):
         """ launchThread Description : (public visibility) :
             Mostly for internal purposes only, shall contains the main loop.
         """
@@ -98,7 +104,7 @@ class App:
 
         # Ensure that no other thread are running
         logging.debug('About to quit, but first check if any other threads are running')
-        other_thread_is_running= True
+        other_thread_is_running = True
         while other_thread_is_running:
             other_thread_is_running = False
 
