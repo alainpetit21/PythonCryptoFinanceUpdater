@@ -48,8 +48,8 @@ class AppPythonCryptoFinanceUpdater(App):
         ModelFacade().add_security("MCM103")
 
         # Model for ModLoadKMyMoneyXML
+        ModelFacade().add_KMyMoneyFile("/home/alain/Documents/Alain Petit/Others/finances.xml")
         # ModelFacade().add_KMyMoneyFile("/home/alain/Documents/Alain Petit/Others/finances.bak.xml")
-        ModelFacade().add_KMyMoneyFile("/home/alain/Documents/Alain Petit/Others/finances.bak.xml")
 
     def main(self, param1=None):
         """ main Description : (public visibility) :
