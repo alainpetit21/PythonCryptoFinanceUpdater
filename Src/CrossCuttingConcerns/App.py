@@ -1,14 +1,7 @@
-"""
-Module for App class. 1 classes in this module : App
-------------------------------------------------------------------------------------------------------------------------
-"""
-# ======================================================================================================================
-# importing external modules
 import time
 import logging
 
 
-# ======================================================================================================================
 class App:
     """
     Class WebAppINF4018_Server Description :
@@ -26,7 +19,6 @@ class App:
         lstSubThread = None
     """
 
-    # ==================================================================================================================
     def __init__(self, p_str_name, debug_level=3):
         """ __init__ Description : (public visibility) :
             Constructor methode that manage the Singleton DP and generic constructor management for this object.
@@ -51,7 +43,6 @@ class App:
         elif debug_level == 5:
             logging.basicConfig(level=logging.CRITICAL,format='[%(levelname)s] (%(threadName)-10s) %(message)s')
 
-    # ==================================================================================================================
     def setDomain(self, p_obj_model):
         """ setDomain Description : (public visibility) :
             Method for adding a Domain Object For the App. This follow the Domain as per DDD architecture or the Model
@@ -59,28 +50,24 @@ class App:
         """
         self.objDomain = p_obj_model
 
-    # ==================================================================================================================
     def getDomain(self):
         """ getDomain Description : (public visibility) :
             Return the Domain (or the Model in MVC).
         """
         return self.objDomain
 
-    # ==================================================================================================================
     def setRunning(self, pWillBeRunning=True):
         """ setRunning Description : (public visibility) :
             Set the internal running boolean to True (default) or the value in argument.
         """
         self.isRunning = pWillBeRunning
 
-    # ==================================================================================================================
     def getRunningStatus(self):
         """ getRunningStatus Description : (public visibility) :
             return wheter this object is running or not.
         """
         return self.isRunning
 
-    # ==================================================================================================================
     def launchThread(self, p_obj_thread):
         """ launchThread Description : (public visibility) :
             Allow the App the launch sub-Thread enabling multi-threading application. The app will keep that in memory
@@ -89,7 +76,6 @@ class App:
         self.lstSubThread.append(p_obj_thread)
         p_obj_thread.start()
 
-    # ==================================================================================================================
     def main(self, param1=None):
         """ launchThread Description : (public visibility) :
             Mostly for internal purposes only, shall contains the main loop.
@@ -117,7 +103,6 @@ class App:
                 obj_thread.join()
             time.sleep(1)
 
-    # ==================================================================================================================
     def onManage(self):
         """ onManage Description : (public visibility) :
             Mostly for external client-side purposes only. Callback style that will be implemented beyond a level.

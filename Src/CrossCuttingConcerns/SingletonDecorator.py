@@ -1,7 +1,3 @@
-"""
-Module for SingletonDecorator class. 1 classes in this module : SingletonDecorator
-------------------------------------------------------------------------------------------------------------------------
-"""
 
 
 class SingletonDecorator:
@@ -18,7 +14,6 @@ class SingletonDecorator:
         objInstance = the only and only instance for this associated class.
     """
 
-    # ==================================================================================================================
     def __init__(self, objClass):
         """ __init__ Description : (public visibility) :
             Constructor for the SingletonDecorator object. Technically speaking, this is created as we decorated another
@@ -27,7 +22,6 @@ class SingletonDecorator:
         self.objClass = objClass
         self.objInstance = None
 
-    # ==================================================================================================================
     def __call__(self, *args, **kwds):
         """ __call__ Description : (public visibility) :
             Operator() method, this is called whenever our "decorated" class is called as a "method" with the

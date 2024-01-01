@@ -1,5 +1,3 @@
-# This example uses Python 2.7 and the python-request library.
-
 from Src.Model.ModelFacade import ModelFacade
 from lxml import etree
 

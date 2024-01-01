@@ -1,6 +1,4 @@
-# This example uses Python 2.7 and the python-request library.
-
-from Src.Controller.config import config
+from Src.Controller.Config import Config
 from Src.Model.ModelFacade import ModelFacade
 
 from requests import Session
@@ -19,14 +17,14 @@ class ModLoadCryptoJSON:
         self.url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest'
 
         # All parameters for the requests session. Note that config.mAPIKey is my own personnal key,
-        # To use on your own terms, create a config.py and config class with this class level attribute
+        # To use on your own terms, create a Config.py and config class with this class level attribute
         self.parameters = {
             'symbol': None,
             'convert': 'CAD'
         }
         self.headers = {
             'Accepts': 'application/json',
-            'X-CMC_PRO_API_KEY': config.mCoinMarketAPIKey
+            'X-CMC_PRO_API_KEY': Config.mCoinMarketAPIKey
         }
         self.session = None
 

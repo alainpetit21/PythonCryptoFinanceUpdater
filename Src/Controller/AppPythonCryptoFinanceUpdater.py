@@ -39,17 +39,19 @@ class AppPythonCryptoFinanceUpdater(App):
         # ModelFacade().add_security("HQL")
         # ModelFacade().add_security("TCT-UN.TRT")
 
-        ModelFacade().add_security("QBTC.TO")
-        ModelFacade().add_security("QETH.UN.TO")
-        ModelFacade().add_security("VAB.TO")
-        ModelFacade().add_security("VUN.TO")
-        ModelFacade().add_security("XEC.TRT")
-        ModelFacade().add_security("XEF.TRT")
-        ModelFacade().add_security("MCM103")
+        # ModelFacade().add_security("QBTC.TO")
+        # ModelFacade().add_security("QETH.UN.TO")
+        # ModelFacade().add_security("VAB.TO")
+        # ModelFacade().add_security("VUN.TO")
+        # ModelFacade().add_security("XEC.TRT")
+        # ModelFacade().add_security("XEF.TRT")
+        # ModelFacade().add_security("MCM103")
 
         # Model for ModLoadKMyMoneyXML
-        ModelFacade().add_KMyMoneyFile("/home/alain/Documents/Alain Petit/Others/finances.xml")
-        # ModelFacade().add_KMyMoneyFile("/home/alain/Documents/Alain Petit/Others/finances.bak.xml")
+        # ModelFacade().add_KMyMoneyFile("/home/alain/Documents/Alain Petit/Others/finances.xml")
+        # ModelFacade().add_KMyMoneyFile("/home/alain/Documents/Alain Petit/Others/finances.xml.bak")
+        # ModelFacade().add_KMyMoneyFile("/home/apetit/Documents/Alain Petit/Others/finances.xml")
+        ModelFacade().add_KMyMoneyFile("/home/apetit/Documents/Alain Petit/Others/finances.xml.bak")
 
     def main(self, param1=None):
         """ main Description : (public visibility) :

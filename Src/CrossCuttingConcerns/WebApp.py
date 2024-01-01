@@ -1,16 +1,8 @@
-"""
-Module for WebApp class. 2 vclasses in this module : WebApp and CherryPyExposure
-------------------------------------------------------------------------------------------------------------------------
-"""
-
-# ======================================================================================================================
-# importing external modules
 import cherrypy
-import os, os.path
+import os
+import os.path
 import time
 
-# ======================================================================================================================
-# importing internal modules
 from Src.CrossCuttingConcerns.App import App
 from Src.CrossCuttingConcerns.Thread import Thread
 
@@ -28,7 +20,6 @@ class CherryPyExposure(Thread):
         None
     """
 
-    # ==================================================================================================================
     def __init__(self, pObjRESTfulService=None):
         """ __init__ Description : (public visibility) :
             Constructor for a new CherryPyExposure object, basically redirecting to super classes the construction.
@@ -36,7 +27,6 @@ class CherryPyExposure(Thread):
         super().__init__("Thread-WebAppCherryPy")
         self.rest_service = pObjRESTfulService          #name must match the Exposure
 
-    # ==================================================================================================================
     def load(self):
         """ load Description : (public visibility) :
             Preparing the Thread for running.
@@ -46,7 +36,6 @@ class CherryPyExposure(Thread):
                                 'request.show_tracebacks': False
                                 })
 
-    # ==================================================================================================================
     def onManage(self, param1= None):
         """ onManage Description : (public visibility) :
             Event (callback) for one loop of execution. In this exemple, 1 loop is all we need since quickstart is
@@ -76,7 +65,6 @@ class CherryPyExposure(Thread):
         self.setRunning(False)
 
 
-# ======================================================================================================================
 class WebApp(App):
     """
     Class WebApp Description :
@@ -91,7 +79,6 @@ class WebApp(App):
                                 manage the presentation layer(View) of the WebApp.
     """
 
-    # ==================================================================================================================
     def __init__(self, p_str_thread_name: str, pObjWebappExposure: CherryPyExposure):
         """ __init__ Description : (public visibility) :
             Constructor if the WebApp. it basically overload the base constructor and start the Presentation exposure

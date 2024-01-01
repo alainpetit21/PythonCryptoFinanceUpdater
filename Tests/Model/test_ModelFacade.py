@@ -5,7 +5,6 @@ from Src.Model.ModelFacade import ModelFacade
 class ModelFacadeTest(unittest.TestCase):
     obj_model_facade = None
 
-
     def setUp(self):
         self.obj_model_facade = ModelFacade()
 

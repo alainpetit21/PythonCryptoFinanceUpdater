@@ -1,6 +1,4 @@
-# This example uses Python 2.7 and the python-request library.
-
-from Src.Controller.config import config
+from Src.Controller.Config import Config
 from Src.Model.ModelFacade import ModelFacade
 from lxml import etree
 import logging
@@ -9,6 +7,9 @@ import time
 
 
 class ModLoadSecurities:
+
+    def __init__(self):
+        self.objDOM = None
 
     def doOneSecurity(self, security):
         logging.basicConfig(filename='example.log', level=logging.DEBUG)
@@ -22,7 +23,7 @@ class ModLoadSecurities:
             logging.info("One try to pull data ... {} remaining\n".format(cpt_retry))
 
             try:
-                ts = TimeSeries(key=config.mAlphaVantageAPIKey, output_format='pandas')
+                ts = TimeSeries(key=Config.mAlphaVantageAPIKey, output_format='pandas')
                 data, meta_data = ts.get_daily(symbol=security, outputsize='compact')
                 str_price = data['4. close'][0]
                 cpt_retry = 0
@@ -30,7 +31,7 @@ class ModLoadSecurities:
                 logging.warning("ts.get_daily did not worked, trying ts.get_intraday\n")
 
                 try:
-                    ts = TimeSeries(key=config.mAlphaVantageAPIKey, output_format='pandas')
+                    ts = TimeSeries(key=Config.mAlphaVantageAPIKey, output_format='pandas')
                     data, meta_data = ts.get_intraday(symbol=security, outputsize='compact')
                     str_price = data['4. close'][0]
                     cpt_retry = 0
