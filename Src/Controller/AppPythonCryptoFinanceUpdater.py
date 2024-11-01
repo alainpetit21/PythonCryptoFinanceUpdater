@@ -23,7 +23,7 @@ class AppPythonCryptoFinanceUpdater(App):
         ModelFacade().add_currency("BTC")
         ModelFacade().add_currency("BCH")
         ModelFacade().add_currency("BTG")
-        ModelFacade().add_currency("BCD")
+        #ModelFacade().add_currency("BCD")
         ModelFacade().add_currency("ETH")
         ModelFacade().add_currency("LTC")
         # ModelFacade().add_currency("MIOTA")
@@ -51,7 +51,8 @@ class AppPythonCryptoFinanceUpdater(App):
         # ModelFacade().add_KMyMoneyFile("/home/alain/Documents/Alain Petit/Others/finances.xml")
         # ModelFacade().add_KMyMoneyFile("/home/alain/Documents/Alain Petit/Others/finances.xml.bak")
         # ModelFacade().add_KMyMoneyFile("/home/apetit/Documents/Alain Petit/Others/finances.xml")
-        ModelFacade().add_KMyMoneyFile("/home/apetit/Documents/Alain Petit/Others/finances.xml.bak")
+        # ModelFacade().add_KMyMoneyFile("/home/apetit/Documents/Alain Petit/Others/financesTest.xml")
+        ModelFacade().add_KMyMoneyFile("D:\\Work\\AlainPetit\\Others\\finances.xml")
 
     def main(self, param1=None):
         """ main Description : (public visibility) :
